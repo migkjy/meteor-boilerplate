@@ -8,11 +8,11 @@ export default class Signup extends React.Component {
       count: 0,
     };
   }
-  increment() {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  }
+  // increment() {
+  //   this.setState({
+  //     count: this.state.count + 1,
+  //   });
+  // }
   decrement() {
     this.setState({
       count: this.state.count - 1,
@@ -24,19 +24,23 @@ export default class Signup extends React.Component {
   // }
   render() {
     // JSX props should not use .bind() 해결책 2
-    const clickIncrement = () => {
-      this.increment();
+    const increment = () => {
+      this.setState({
+        count: this.state.count + 1,
+      });
     };
-    const clickDecrement = () => {
-      this.decrement();
+    const decrement = () => {
+      this.setState({
+        count: this.state.count - 1,
+      });
     };
     return (
       <div>
-        <h1>Signup Component here</h1>
+        <h1>Join Shor Lnk</h1>
 
         <p>{this.state.count}</p>
-        <button onClick={clickIncrement}>+1</button>
-        <button onClick={clickDecrement}>-1</button>
+        <button onClick={increment}>+1</button>
+        <button onClick={decrement}>-1</button>
         <Link to="/">Alreay have an Account?</Link>
       </div>
     );
