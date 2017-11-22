@@ -8,7 +8,7 @@ import NotFound from './../ui/NotFound';
 import Login from './../ui/Login';
 
 const unauthenticatedPages = ['/', '/signup'];
-const autheticatedPages = ['/links'];
+const authenticatedPages = ['/links'];
 const onEnterPublicPage = () => {
   if (Meteor.userId()) {
     browserHistory.replace('/links');
@@ -22,7 +22,7 @@ const onEnterPrivatePage = () => {
 export const onAuthChange = (isAuthenticated) => {
   const pathname = browserHistory.getCurrentLocation().pathname;
   const isUnauthenticatedPages = unauthenticatedPages.includes(pathname);
-  const isAuthenticatedPages = autheticatedPages.includes(pathname);
+  const isAuthenticatedPages = authenticatedPages.includes(pathname);
 
   if (isUnauthenticatedPages && isAuthenticated) {
     browserHistory.replace('/links');
