@@ -10,5 +10,8 @@ Tracker.autorun(() => {
 });
 
 Meteor.startup(() => {
+  Meteor.call('addNumber', 3, 5, (err, res) => {
+    console.log('client addNumber is running', err, res);
+  });
   ReactDOM.render(routes, document.getElementById('signup'));
 });
