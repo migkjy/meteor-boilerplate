@@ -3,6 +3,7 @@ import { Tracker } from 'meteor/tracker';
 import ReactDOM from 'react-dom';
 
 import { routes, onAuthChange } from '../imports/routes/routes';
+import './../imports/startup/simpl-shcema-configuration';
 
 Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
@@ -10,8 +11,5 @@ Tracker.autorun(() => {
 });
 
 Meteor.startup(() => {
-  Meteor.call('addNumber', 3, 5, (err, res) => {
-    console.log('client addNumber is running', err, res);
-  });
   ReactDOM.render(routes, document.getElementById('signup'));
 });
