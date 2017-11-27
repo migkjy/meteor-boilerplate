@@ -42,7 +42,27 @@ Meteor.methods({
       _id: shortid.generate(),
       url,
       userId: this.userId,
+      visible: true,
     });
+  },
+  'links.setVisiblity': function (_id, visible) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+    try {
+      new SimpleSchema({
+        _id: {
+          type: String,
+          min: 1,
+        },
+        visible: {
+          type: Boolean,
+        },
+      }).validate({ _id, visible });
+    } catch (error) {
+      throw new Meteor.Error(400, error.message);
+    }
+    Links.update({ _id, userId: this.userId }, { $set: { visible } });
   },
 });
 
