@@ -9,8 +9,8 @@ export default () => (
   <div>
     <PrivateHeader title="June's LinksApp" />
     <LinkListFilters />
-    <LinkList />
     <AddLink />
+    <LinkList />
   </div>
 );
 

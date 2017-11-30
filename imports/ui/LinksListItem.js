@@ -39,6 +39,7 @@ export default class LinksListItem extends React.Component {
         <p>{this.props.url}</p>
         <p>{this.props.visible.toString()}</p>
         {this.renderStats()}
+        <a href={this.props.shortUrl} target="_blank">Visit</a>
         <button ref="copy" data-clipboard-text={this.props.shortUrl}>
           {this.state.justCopied ? 'Copied' : 'Copy'}
           {/* not this.props.state... */}
@@ -61,7 +62,7 @@ LinksListItem.propTypes = {
   shortUrl: React.PropTypes.string.isRequired,
   visible: React.PropTypes.bool.isRequired,
   visitedCount: React.PropTypes.number.isRequired,
-  lastVisitedAt: React.PropTypes.number,
+  lastVisitedAt: React.PropTypes.number, // if null is contained. don't use isRequired
 };
 
 // const LinksListItem = props => (
