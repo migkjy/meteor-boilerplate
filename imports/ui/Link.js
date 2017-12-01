@@ -8,9 +8,11 @@ import LinkListFilters from './LinkListFilters';
 export default () => (
   <div>
     <PrivateHeader title="June's LinksApp" />
-    <LinkListFilters />
-    <AddLink />
-    <LinkList />
+    <div className="page-content">
+      <LinkListFilters />
+      <AddLink />
+      <LinkList />
+    </div>
   </div>
 );
 

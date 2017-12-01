@@ -24,7 +24,7 @@ export default class LinksListItem extends React.Component {
     this.clipboard.destroy();
   }
   renderStats() {
-    const visitMessage = this.props.visitedCount === 1 ? 'visit' : 'visits';
+    const visitMessage = this.props.visitedCount === 1 ? ' visit' : ' visits';
     let visitedMessage = null;
 
     if (typeof this.props.lastVisitedAt === 'number') {
@@ -34,19 +34,32 @@ export default class LinksListItem extends React.Component {
   }
   render() {
     return (
-      <div>
-        <p>{this.props.shortUrl}</p>
-        <p>{this.props.url}</p>
-        <p>{this.props.visible.toString()}</p>
+      <div className="item">
+        <h2>{this.props.url}</h2>
+        <p className="item__message">{this.props.shortUrl}</p>
+        {/* <p>{this.props.visible.
+        toString()}</p> */}
         {this.renderStats()}
-        <a href={this.props.shortUrl} target="_blank">Visit</a>
-        <button ref="copy" data-clipboard-text={this.props.shortUrl}>
+        <a
+          href={this.props.shortUrl}
+          target="_blank"
+          className="button button--link button--pill "
+        >
+          Visit
+        </a>
+        <button
+          ref="copy"
+          data-clipboard-text={this.props.shortUrl}
+          className="button button--pill"
+        >
           {this.state.justCopied ? 'Copied' : 'Copy'}
           {/* not this.props.state... */}
         </button>
-        <button onClick={() => {
-          Meteor.call('links.setVisiblity', this.props._id, !this.props.visible);
-        }}
+        <button
+          className="button button--pill"
+          onClick={() => {
+            Meteor.call('links.setVisiblity', this.props._id, !this.props.visible);
+          }}
         >
           {this.props.visible ? 'Hide' : 'Unhide'}
         </button>

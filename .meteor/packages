@@ -21,3 +21,4 @@ accounts-password
 accounts-ui
 gadicc:blaze-react-component
 session
+fourseven:scss@=3.13.0

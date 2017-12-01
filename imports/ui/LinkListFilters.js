@@ -22,9 +22,10 @@ export default class LinkListFilters extends React.Component {
   render() {
     return (
       <div>
-        <lebel>
+        <lebel className="checkbox">
           <input
             type="checkbox"
+            className="checkbox__box"
             onChange={(e) => {
               Session.set('showVisible', e.target.checked);
             }}
