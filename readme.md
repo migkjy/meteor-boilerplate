@@ -1,6 +1,3 @@
-## Short Lnk
+## Boilerplate Meteor Project
 
-## Author
-JuneK
-
-less ~/.ssh
+This includes a basic react and auth setup
