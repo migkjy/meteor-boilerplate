@@ -6,7 +6,7 @@ export default class AddLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: 'June was here',
+      url: '',
       isOpen: false,
       error: '',
     };
